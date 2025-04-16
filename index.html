@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OTP Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>OTP Verification</h2>
+    <button onclick="generateOTP()">Generate OTP</button>
+    <p id="otpDisplay" style="margin: 10px 0; color: gray;"></p>
+    <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+    <button onclick="verifyOTP()">Verify OTP</button>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    let generatedOTP = "";
+
+    function generateOTP() {
+      generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+      document.getElementById("otpDisplay").textContent = `OTP: ${generatedOTP}`;
+      document.getElementById("message").textContent = "";
+    }
+
+    function verifyOTP() {
+      const userOTP = document.getElementById("otpInput").value;
+      const messageEl = document.getElementById("message");
+
+      if (userOTP === generatedOTP) {
+        messageEl.style.color = "green";
+        messageEl.textContent = "OTP Verified Successfully!";
+      } else {
+        messageEl.style.color = "red";
+        messageEl.textContent = "Invalid OTP. Please try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>
