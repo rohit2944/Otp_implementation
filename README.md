@@ -32,7 +32,7 @@ A simple web-based **OTP (One-Time Password) Verification** tool built using HTM
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/otp-verification-tool.git
-   cd otp-verification-tool
+   cd otp-verification-tool.
 
-   ##To Run as Web app
+## To Run as Web app
     https://rohit2944.github.io/Otp_implementation/
